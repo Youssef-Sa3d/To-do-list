@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>To do list</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h3 class="logo" id="logo">
+            TDL
+        </h3>
+        <button type="button" class="darkbtn" id="darkbtn" onclick="dark()" >Dark Mode</button>
+    </header>
+    <div class="container" id="container"> 
+        <div class="add" id="add">
+            <input type="text" class="txt" placeholder="Add to list" name="todo" id="txt">
+            <button class="btn" id="btn" onclick="return suii()">Add</button>
+        </div>
+        <div class="list" id="list">
+
+        </div>
+    </div>
+</body>
+
+</html>
