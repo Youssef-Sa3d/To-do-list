@@ -1,4 +1,4 @@
-var counter = 1;
+var mode = false;
 
 function dele() {
     var ele = this.parentNode;
@@ -6,17 +6,24 @@ function dele() {
 }
 
 function checked() {
-    var pp = this.parentNode;
+    var element = this.parentNode;
+    var p = element.childNodes[1];
     if (this.checked) {
-        pp.style.textDecorationLine = "line-through";
+        p.style.textDecorationLine = "line-through";
     } else {
-        pp.style.textDecorationLine = "";
+        p.style.textDecorationLine = "";
     }
 }
 
 function suii() {
-    if (document.getElementById("txt").value == '') {
-    } else {
+    if (document.getElementById("txt").value == '' || document.getElementById("txt").value == ' ') {
+        document.getElementById("txt").placeholder = "Add something!";
+    }
+    // else if (parentNode.childNodes.length < 1) {
+    //     document.getElementById("txt").placeholder = "Add to list again!";
+        
+    // }
+    else {
         var value = document.getElementById("txt").value;
         var ele = document.getElementById("list");
 
@@ -24,60 +31,72 @@ function suii() {
         var div = document.createElement("div");
         ele.appendChild(div);
         div.className = "parent";
-
+        
         var done = document.createElement("input");
         done.setAttribute('type', 'checkbox');
         div.appendChild(done);
         done.addEventListener("change", checked);
         done.className = 'done';
-
+        
         var p = document.createElement("p");
         var txt = document.createTextNode(value);
         p.appendChild(txt);
         div.appendChild(p);
         document.getElementById("txt").value = '';
-
+        document.getElementById("txt").placeholder = "Add more!";
+        
         var x = document.createElement("button");
         var del = document.createTextNode("x");
         x.appendChild(del);
         div.appendChild(x);
         x.addEventListener("click", dele);
-        x.className = 'x';
-
-        counter++;
+        if (mode === false) {
+            p.className = 'p';
+            x.className = 'x';
+        } else {
+            
+            p.className = 'dp';
+            x.className = 'dx';
+        }
+        
     }
 }
 
 
-function dark() {
-    var backbody = document.body.style;
-    backbody.background = "rgb(255, 255, 255)";
-
-    if (backbody.backgroundColor === "rgb(255, 255, 255)") {
-        console.log("messiiii");
-        backbody.background = "black";
-        document.getElementById("logo").style.color = "white";
-        document.getElementById("darkbtn").style.background = "white";
-        document.getElementById("darkbtn").style.color = "black";
-        document.getElementById("darkbtn").innerHTML = "Light Mode";
-        document.getElementById("container").style.background = "white";
-        document.getElementById("txt").style.background = "black";
-        document.getElementById("txt").style.color = "white";
-        document.getElementById("btn").style.background = "white";
-        document.getElementById("btn").style.borderColor = "black";
-        document.getElementById("btn").style.color = "black";
-    } else if (backbody.backgroundColor === "rgb(0, 0, 0)") {
-        console.log("suiiiii");
-        backbody.background = "white";
-        document.getElementById("logo").style.color = "black";
-        document.getElementById("darkbtn").style.background = "black";
-        document.getElementById("darkbtn").style.color = "white";
-        document.getElementById("darkbtn").innerHTML = "Dark Mode";
-        document.getElementById("container").style.background = "black";
-        document.getElementById("txt").style.background = "white";
-        document.getElementById("txt").style.color = "black";
-        document.getElementById("btn").style.background = "black";
-        document.getElementById("btn").style.borderColor = "white";
-        document.getElementById("btn").style.color = "white";
+var pp = document.getElementsByClassName("p");
+var xx = document.getElementsByClassName("x");
+function m() {
+    if (mode === false) {
+        document.body.style.backgroundColor = "black";
+        document.querySelector(".logo").className = "dlogo";
+        document.querySelector(".darkbtn").innerHTML = "Light Mode";
+        document.querySelector(".darkbtn").className = "lightbtn";
+        document.querySelector(".container").className = "dcontainer";
+        document.querySelector(".txt").className = "dtxt";
+        document.querySelector(".list").className = "dlist";
+        for (var i = 0; i < pp.length; i++) {
+            pp[i].classList.toggle("dp");
+            xx[i].classList.toggle("dx");
+        }
+        document.querySelector(".btn").className = "dbtn";
+        mode = true;
+    } else {
+        document.body.style.backgroundColor = "white";
+        document.querySelector(".dlogo").className = "logo";
+        document.querySelector(".lightbtn").innerHTML = "Dark Mode";
+        document.querySelector(".lightbtn").className = "darkbtn";
+        document.querySelector(".dcontainer").className = "container";
+        document.querySelector(".dtxt").className = "txt";
+        document.querySelector(".dlist").className = "list";
+        
+        for (var i = 0; i < pp.length; i++) {
+            pp[i].classList.toggle("dp");
+            xx[i].classList.toggle("dx");
+        }
+        document.querySelector(".dbtn").className = "btn";
+        mode = false;
+        
     }
+
 }
+
