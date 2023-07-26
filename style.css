@@ -126,6 +126,8 @@ header {
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    word-wrap: break-word;
+
 
 }
 
@@ -241,6 +243,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    word-wrap: break-word;
 
 }
 
