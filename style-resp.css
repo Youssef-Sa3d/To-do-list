@@ -1,0 +1,63 @@
+@media screen and (max-width: 768px) {
+    header {
+        height: 115px;
+        flex-direction: column;
+        padding: 0px;
+    }
+    
+    .main{
+        height: 460px;
+    }
+    
+    .container , .dcontainer{
+        padding: 30px;
+    }
+    
+    .txt , .dtxt{
+        width: 200px;
+    }
+    
+    .btn , .dbtn {
+        width: 60px;
+    }
+    
+    .list , .dlist {
+        width: 300px;
+    }
+}
+@media screen and (max-width: 426px) {
+    
+    .darkbtn , .lightbtn {
+        height: 35px;
+        width: 80px;
+        font-size: 10px;
+        font-weight: bold;
+    }
+
+    .logo , .dlogo {
+        font-size: 45px;
+        font-weight: bold;
+    }
+    
+    .container , .dcontainer{
+        padding: 20px 5px 10px 5px;
+    }
+    .txt , .dtxt{
+        width: 130px;
+        padding: 10px 15px;
+    }
+    
+    .btn , .dbtn {
+        width: 40px;
+        height: 36px;
+    }
+    
+    .list , .dlist {
+        width: 200px;
+        margin-top: 5px;
+    }
+}
+
+
+
+
